@@ -1,4 +1,5 @@
-/*  */
+/* https://github.com/bimawib/rakamin-academy */
+
 /* CREATE DB */
 
 CREATE DATABASE toy_store;
