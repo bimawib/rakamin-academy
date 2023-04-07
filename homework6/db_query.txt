@@ -1,0 +1,75 @@
+/*  */
+/* CREATE DB */
+
+CREATE DATABASE toy_store;
+
+/* CREATE TABLE AND DEFINE COLUMN */
+
+CREATE TABLE toys(
+    id serial primary key,
+    category_id integer,
+    "name" varchar,
+    price integer,
+    description varchar,
+    created_at timestamp
+);
+CREATE TABLE categories(
+    id serial primary key,
+    "name" varchar,
+    created_at timestamp
+);
+
+/* QUERY CREATE TOYS */
+
+INSERT INTO toys (category_id,"name",price,description,created_at) VALUES 
+(1, 'MAC-10 Airsoft SMG',170000,'Senjata Airsoft Gun - SMG',current_timestamp),
+(1, 'AK-47 Airsoft Rifle',4700000,'Senjata Airsoft Gun - Rifle',current_timestamp),
+(1, 'M4A4 Airsoft Rifle',2100000,'Senjata Airsoft Gun - Rifle',current_timestamp),
+(1, 'USP-S With Silencer Airsoft Pistol',1300000,'Senjata Airsoft Gun - Pistol',current_timestamp),
+(2, 'Lamborghini Murcielago SV Diecast (1:13)',530000,'Diecast Ratio 1:13',current_timestamp),
+(2, 'Audi TT Sport Diecast (1:13)',510000,'Diecast Ratio 1:13',current_timestamp),
+(2, 'Porsche 911 RSR Diecast (1:13)',520000,'Diecast Ratio 1:13',current_timestamp),
+(2, 'Nissan GT-R R34 Diecast (1:4)',3500000,'Diecast Ratio 1:4',current_timestamp),
+(3, 'Nendoroid Hatsune Miku - Goodsmile Company',1500000,'Nendoroid Hatsune Miku Size 1:17',current_timestamp),
+(3, 'Nendoroid Usada Pekora Limited Edition - Goodsmile Company',1900000,'Nendoroid Usada Pekora Size 1:17',current_timestamp),
+(3, 'Action Figure Chigiri Hyoma - Goodsmile Company',23000000,'Action Figure Chigiri Hyoma Size 1:6',current_timestamp),
+(3, 'Action Figure Momobami Kirari - Goodsmile Company',25000000,'Action Figure Momobami Kirari Size 1:6',current_timestamp),
+(4, 'Magnetic Chess Board',69000,'Chess Board With Magnetic Pieces',current_timestamp),
+(4, 'Uno Card',40000,'Stack of Uno Card (120 piece)',current_timestamp),
+(4, 'Monopoly Board',50000,'Monopoly Game',current_timestamp),
+(4, 'Pokemon GO Card - Booster Pack',40000,'10 Pack of Pokemon GO Card',current_timestamp),
+(5, 'Boneka Anak - Kamado Tanjiro',70000,'Boneka Karakter Kamado Tanjiro',current_timestamp),
+(5, 'Boneka Anak - Anya Forger',150000,'Boneka Karakter Anya Forger',current_timestamp),
+(5, 'Boneka Anak - Kotori Minami',30000,'Boneka Karakter Kotori Minami',current_timestamp),
+(5, 'Boneka Anak - Tippy',400000,'Boneka Karakter Tippy',current_timestamp);
+
+/* QUERY SELECT TOYS */
+
+SELECT "name", price, description FROM toys;
+
+/* QUERY UPDATE TOYS */
+
+UPDATE toys SET "name" = 'Uno Card Limited Edition' WHERE "name" = 'Uno Card';
+
+/* QUERY CREATE CATEGORIES */
+INSERT INTO categories ("name", created_at) VALUES 
+('Airsoft Gun',current_timestamp),
+('Diecast',current_timestamp),
+('Action Figure',current_timestamp),
+('Board Game and Card',current_timestamp),
+('Doll',current_timestamp);
+
+/* QUERY SELECT CATEGORIES */
+
+SELECT * FROM categories;
+
+/* QUERY UPDATE CATEGORIES */
+
+UPDATE categories SET "name" = 'Doll and Puppets' WHERE id = 5;
+
+/* QUERY JOIN RELATION TOYS AND CATEGORIES */
+
+SELECT toys.name, toys.price, categories.name AS category, toys.description FROM toys 
+JOIN categories ON toys.category_id = categories.id 
+WHERE toys.price >= 1000000 
+ORDER BY toys.price ASC;
