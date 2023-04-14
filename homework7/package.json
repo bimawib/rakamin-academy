@@ -1,0 +1,14 @@
+{
+  "name": "homework7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calculation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test_soal1": "node soal1.js",
+    "test_soal2": "node soal2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
