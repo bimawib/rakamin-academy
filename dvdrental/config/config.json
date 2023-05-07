@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "netorare13",
+    "database": "dvdrental",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "netorare13",
+    "database": "dvdrental",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "netorare13",
+    "database": "dvdrental",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
